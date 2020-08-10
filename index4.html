@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--导入vue包-->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<!--添加key更新数据时只更新key指的地方，不会更新整个块-->
+				<li v-for="item in menus" :key = item.id>
+					<h3>id:{{item.id}} 菜名:{{item.name}}</h3>
+				</li>
+			</ul>
+			<ul>
+				<li v-for="(val,key) in objs">
+					<h2>{{key}} --- {{val}}</h2>
+				</li>
+			</ul>
+			<p>{{msg}}</p>
+			<input type="text" v-model="msg">
+			<!-- 复选框的单选 -->
+			<label for="check">{{isChecked}}</label>
+			<input type="checkbox" id="check" v-model="isChecked">
+		</div>
+		
+		<script>
+			//初始化
+			const vm = new Vue({
+				el:'#app',
+				//数据属性
+				data:{
+					isChecked:false,
+					msg:'hello',
+					menus:[
+						{id:1,name:'螺蛳粉'},
+						{id:2,name:'豆腐花'},
+						{id:3,name:'烤韭菜'},
+						{id:4,name:'啤酒'}
+					],
+					objs:{
+						id:1,
+						name:'大桌子'
+					}
+				},
+				//方法
+				methods:{
+					
+				}
+			})
+		</script>
+	</body>
+</html>

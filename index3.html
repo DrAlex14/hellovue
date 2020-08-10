@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<style>
+			.box{
+				background-color: aqua;
+				width: 20px;
+				height: 20px;
+			}
+			.active{
+				background-color: tomato;
+				width: 30px;
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div v-if="isShow">
+				显示
+			</div>
+			<div v-else>
+				隐藏
+			</div>
+			<a v-bind:href="url">{{name}}</a>
+			<h1>{{num}}</h1>
+			<button v-on:click="num++">+1</button>
+			<button v-on:click="num--">-1</button>
+			<div class="box" :class='{active:isActive}'></div>
+		    <button v-on:click="changeActive">切换</button>
+		</div>
+		
+
+		
+		<script>
+			new Vue({
+				el:"#app",
+				data:{
+					isShow:Math.random() > 0.5,
+					name:"百度",
+					url:"https://www.baidu.com",
+					num:0,
+					isActive:false
+				},
+				methods:{
+					changeActive(){
+						this.isActive = !this.isActive;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
