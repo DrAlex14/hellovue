@@ -7,24 +7,25 @@
     <title>ES6</title>
     <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 </head>
-
+     
 <body>
     <div id="app">
         <h1> {{msg}} </h1>
+        <h1> {{pi}}</h1>
     </div>
 
     <script>
         new Vue({
             el: '#app',
             data: {
-                msg: "hello vue"
-
+                msg: "hello vue",
+                pi:Math.PI
             }
         })
     </script>
     <script>
-            const a = 5;
-            const a = 10;
+        const { log } = console;
+        log('hello') // hello   
     </script>
 </body>
 

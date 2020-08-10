@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--导入vue包-->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1>{{reverseMsg}}</h1>
+			<h1>{{fullname}}</h1>
+			<button @click='handlerClick'>改变</button>
+		</div>
+		
+		<script>
+			//初始化
+			const vm = new Vue({
+				el:'#app',
+				//数据属性
+				data:{
+					msg:'hello vue',
+					fistname: 'z',
+					lastname: 'zy',
+				},
+				//方法
+				methods:{
+					handlerClick(){
+						this.lastname = '桌子';
+					}
+				},
+				computed:{
+					//computed只有getter方法
+					//优点产生缓存，数据不改变可直接从缓存中获取
+					reverseMsg:function(){
+						return this.msg.split('').reverse().join('');
+					},
+					fullname:function(){
+						return this.fistname + this.lastname;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
